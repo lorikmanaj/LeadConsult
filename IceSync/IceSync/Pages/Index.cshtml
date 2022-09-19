@@ -1,0 +1,76 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Workflow Name
+            </th>
+            <th>
+                Is Active
+            </th>
+            <th>
+                Is Running
+            </th>
+            <th>
+                MultiExec Behaviour
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Workflows)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WorkflowName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsRunning)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MultiExecBehaviour)
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "DeleteWorkflow", "Workflows", new { id = item.WorkflowId }) |
+
+                    <button id="@item.WorkflowId" onclick="runWorkFlow(@item.WorkflowId)">Run</button> |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+
+    function runWorkFlow(id)
+    {
+        $.ajax({
+            url: "api/Workflows/RunWorkFlow",
+            type: "POST",
+            data: { id: id },
+            async: false,
+            success: function (data) {
+                if(data==="True")
+                {
+                    alert("Successfuly ran workflow.");
+                }
+                else
+                {
+                    alert("Workflow run failed!");
+                }
+        }
+    });
+    }
+</script>

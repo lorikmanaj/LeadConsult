@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "9g2EmP9+TR8q7CEPw2tKAlU+CZF64VcASH+1Chq9JgaQ4bOGWv/ZpEXsQbAWjRHqUjI3jOl/D8AQ8UcCOkO4mw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\lorik\\Downloads\\TestLeadConsult\\IceSync\\IceSync.DomainModel\\IceSync.DomainModel.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lorik\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
